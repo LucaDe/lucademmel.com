@@ -10,10 +10,33 @@ import '../global.css'
 
 const PageWrapper = styled.div`
   margin: 0 auto;
-  font-family: ${props => props.theme.fontFamily};
+  font-family: ${props => props.theme.fontFamily}
 `;
 
-const Layout = ({ children }) => (
+const Hero = styled.header`
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const HeroHeadline = styled.h1`
+  font-size: ${props => props.theme.font.l};
+  color: ${props => props.theme.colors.primary};
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 80%;
+    height: 3px;
+    background: ${props => props.theme.colors.primary};
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+  }
+`
+
+const Layout = ({ children, showHero, title }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -29,17 +52,29 @@ const Layout = ({ children }) => (
         <>
           <PageWrapper>
             <Header siteTitle={data.site.siteMetadata.title} />
+            {showHero && (
+                <Hero>
+                  <HeroHeadline>{title}</HeroHeadline>
+                </Hero>
+            )}
             {children}
+            <Footer />
           </PageWrapper>
-          <Footer />
          </>
       </ThemeProvider>
     )}
   />
 )
 
+Layout.defaultProps = {
+  showHero: false,
+  title: '',
+}
+
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  showHero: PropTypes.bool,
+  title: PropTypes.string
 }
 
 export default Layout

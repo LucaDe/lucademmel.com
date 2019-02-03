@@ -31,7 +31,6 @@ const About = () => (
         }
     }`}
     render={data => {
-      console.log(data)
       return (
         <AboutWrapper id="about">
           <Container>

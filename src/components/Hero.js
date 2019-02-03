@@ -33,7 +33,7 @@ const Right = styled.div`
 
 
 const Hero = ({ slogan }) => (
-  <HeroWrapper>
+  <HeroWrapper id="hero">
     <Left>
       <Caption>{slogan}</Caption>
       <p>The general purpose, for which this corporation is formed, is to provide an arena for local education and humane treatment to animals and to foster local interest in such a society.</p>

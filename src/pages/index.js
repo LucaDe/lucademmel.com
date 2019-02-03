@@ -11,11 +11,11 @@ import { Seo, Layout, Hero, Projects, About } from '../components'
  * - Backend / Multilanguage (?)
  */
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Home" keywords={[`tech`, `business`, `react`]} />
-      <Hero slogan={data.contentfulHome.slogan} />
+      <Hero slogan={data.contentfulPageInformation.slogan} />
       <Projects projects={data.allContentfulPosts.edges} />
       <About />
     </Layout>
@@ -24,9 +24,8 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage
 
-export const query2 = graphql`{
-  contentfulHome {
-    id
+export const query = graphql`{
+  contentfulPageInformation {
     slogan
   }
 

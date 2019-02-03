@@ -67,9 +67,9 @@ const NavigationList = styled.ul`
 const navItemBuilder = (link, title) => ({ link, title });
 
 const navItems = [
-  navItemBuilder('#', 'Home'),
-  navItemBuilder('#', 'About'),
-  navItemBuilder('#', 'Projects'),
+  navItemBuilder('#hero', 'Home'),
+  navItemBuilder('#projects', 'Projects'),
+  navItemBuilder('#about', 'About'),
 ];
 
 const Header = ({ siteTitle }) => (
