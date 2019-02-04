@@ -5,8 +5,12 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Luca Demmel`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Bringing visions to real life. Transforming ideas to valuable digital products developed with technical excellence.`,
     author: `@lucademmel`,
+    facebook: `https://www.facebook.com/luca.demmel`,
+    instagram: `https://www.instagram.com/lucademmel`,
+    xing: `https://www.xing.com/profile/Luca_Demmel`,
+    linkedin: `https://www.linkedin.com/in/luca-demmel`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

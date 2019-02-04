@@ -1,6 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components';
+import styled from 'styled-components'
+
+import { SocialIcons } from '../components'
 
 const FooterWrapper = styled.footer`
   display: flex;
@@ -10,6 +12,7 @@ const FooterWrapper = styled.footer`
   height: 150px;
   background: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.white};
+  padding-bottom: ${props => props.theme.spacing.m};
 `;
 
 const NavList = styled.ul`
@@ -41,6 +44,7 @@ const Footer = () => (
       <NavItem to="imprint">Imprint</NavItem>
       <NavItem to="privacyPolicy">Privacy Policy</NavItem>
     </NavList>
+    <SocialIcons />
     © {new Date().getFullYear()}, Luca Demmel
   </FooterWrapper>
 )

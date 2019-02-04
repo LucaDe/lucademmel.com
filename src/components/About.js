@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import Heading from './Heading';
 import Container from './Container';
 import { media } from '../theme';
+import { SocialIcons } from '.';
 
 const AboutWrapper = styled.div`
   background: ${props => props.theme.colors.blue};
@@ -14,8 +15,9 @@ const AboutWrapper = styled.div`
 `
 
 const ProfileImage = styled(Img)`
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  ${media.phone`width: 150px;`}
+  height: auto;
   border-radius: 50%;
 `
 
@@ -43,6 +45,11 @@ const Text = styled.p`
   font-weight: 300;
 `
 
+const Social = styled.div`
+  width: 30%;
+  ${media.tablet`width: 100%;`}
+`
+
 const About = () => (
   <StaticQuery
     query={graphql`
@@ -63,9 +70,15 @@ const About = () => (
             <Wrapper>
               <AboutRow>
                 <ProfileImage fluid={data.fileName.childImageSharp.fluid} />
-                <AboutText>Hello World, Hello World , Hello World, Hello World</AboutText>
+                <AboutText>Das Gefühl digitale Produkte und Erlebnisse, die zur Verbesserung des Status quo beitragen, zu entwickeln treibt mich an. 💯</AboutText>
               </AboutRow>
-              <Text>Hello World, Hello World , Hello World, Hello World</Text>
+              <Text>Neben der strategischen Ausrichtung von Incudy, sowie der Erweiterung unseres Teams kümmere ich mich primär um die technische Umsetzung unserer Projekte.
+Dabei sorge ich dafür, dass die Visionen unserer Incudy Founder und Klienten technisch immer mittels State of the Art Technologien realisiert werden.
+Wenn ich nicht gerade in Meetings oder an der Tastatur bin, spiele ich Tennis, bin Tauchen oder beim Ski-Fahren ✌🏼</Text>
+              <Text>Contact me:</Text>
+              <Social>
+                <SocialIcons />
+              </Social>
             </Wrapper>
           </Container>
         </AboutWrapper>
