@@ -9,13 +9,12 @@ const FooterWrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 150px;
   background: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.white};
   padding-bottom: ${props => props.theme.spacing.m};
 `;
 
-const NavList = styled.ul`
+const NavList = styled.div`
   list-style: none;
   display: flex;
   flex-wrap: wrap;

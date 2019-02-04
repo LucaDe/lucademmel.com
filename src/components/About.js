@@ -38,7 +38,10 @@ const AboutRow = styled.div`
 
 const AboutText = styled.p`
   padding-left: ${props => props.theme.spacing.m};
-  ${media.phone`padding: 0;`}
+  ${media.phone`
+    padding: 0;
+    text-align: center;
+  `}
 `
 
 const Text = styled.p`
@@ -48,6 +51,10 @@ const Text = styled.p`
 const Social = styled.div`
   width: 30%;
   ${media.tablet`width: 100%;`}
+`
+const Incudy = styled.a`
+  color: ${props => props.theme.colors.primary};
+  text-decoration: underline;
 `
 
 const About = () => (
@@ -70,11 +77,13 @@ const About = () => (
             <Wrapper>
               <AboutRow>
                 <ProfileImage fluid={data.fileName.childImageSharp.fluid} />
-                <AboutText>Das Gefühl digitale Produkte und Erlebnisse, die zur Verbesserung des Status quo beitragen, zu entwickeln treibt mich an. 💯</AboutText>
+                <AboutText>Passionate about realizing <i>value creating</i> digital products and experiences using state of the art technologies 💯</AboutText>
               </AboutRow>
-              <Text>Neben der strategischen Ausrichtung von Incudy, sowie der Erweiterung unseres Teams kümmere ich mich primär um die technische Umsetzung unserer Projekte.
-Dabei sorge ich dafür, dass die Visionen unserer Incudy Founder und Klienten technisch immer mittels State of the Art Technologien realisiert werden.
-Wenn ich nicht gerade in Meetings oder an der Tastatur bin, spiele ich Tennis, bin Tauchen oder beim Ski-Fahren ✌🏼</Text>
+              <Text>
+                While studying business information systems in Cologne and LA I worked in multiple e-commerce companies as a web developer. After finishing my bachelor degree
+                I started working for my own. As a freelancer I realized mobile, web apps and e-commerce solutions for multiple startups and businesses.<br />
+                Currently I'm focussing on my own company <Incudy href="https://www.incudy.de" title="incudy" target="_blank">Incudy</Incudy>, where we build new startups and support clients with digital services.
+              </Text>
               <Text>Contact me:</Text>
               <Social>
                 <SocialIcons />

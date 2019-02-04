@@ -35,19 +35,20 @@ const Right = styled.div`
   min-width: 280px;
 `;
 
-
 const IndexHero = ({ slogan }) => (
   <HeroWrapper id="hero">
     <Left>
       <Caption>{slogan}</Caption>
-      <p>The general purpose, for which this corporation is formed, is to provide an arena for local education and humane treatment to animals and to foster local interest in such a society.</p>
+      <p>
+        Ideas are everywhere. I focus on transforming them to digital products and bringing them to real life using state of the art technologies.
+      </p>
       <Button href="#projects">Projects</Button>
       <Button inline href="#about">More about me</Button>
     </Left>
     <Right>
       <Particles height={500} params={particleConfig} />
     </Right>
-  </HeroWrapper>  
+  </HeroWrapper>
 )
 
 export default IndexHero
