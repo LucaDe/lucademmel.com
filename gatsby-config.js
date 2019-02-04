@@ -45,5 +45,19 @@ module.exports = {
     },
     '@contentful/gatsby-transformer-contentful-richtext',
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-133745886-1',
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**"],
+        cookieDomain: "www.lucademmel.com",
+      },
+    },
   ],
 }
