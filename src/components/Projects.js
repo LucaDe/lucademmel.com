@@ -36,7 +36,7 @@ const Projects = ({ projects }) => (
       <Heading text="Projects" />
       <ProjectList>
         {projects.map(({ node }, i) => (
-          <Project key={i} project={node} />
+          <Project key={i} project={node} index={i} />
         ))}
       </ProjectList>
     </Container>

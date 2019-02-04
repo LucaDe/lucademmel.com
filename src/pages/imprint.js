@@ -2,15 +2,13 @@ import React from 'react'
 
 import { Layout, Seo, Container } from '../components'
 
-const t = s => s.replace("/n", "<br />")
-
 export default ({ data }) => {
-  console.log(data)
+  const title = 'Imprint'
   return (
-    <Layout showHero title="Imprint">
-      <Seo title="Imprint" />
+    <Layout title={title}>
+      <Seo title={title} />
       <Container>
-        <div dangerouslySetInnerHTML={{ __html: t(data.contentfulPageInformation.imprint_html.childContentfulRichText.html)}} />
+        <div dangerouslySetInnerHTML={{ __html: data.contentfulPageInformation.imprint_html.childContentfulRichText.html}} />
       </Container>
     </Layout>
   )

@@ -3,14 +3,19 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from "styled-components"
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
+  padding: ${props => props.theme.spacing.l} 0 0 0;
+  background: ${props => props.background ? props.background : props.theme.colors.white};
+`;
+
+const NavigationWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  max-width: ${props => props.theme.containerWidth};;
-  padding: ${props => props.theme.spacing.l} 0 0 0;
-`;
+  width: 100%;
+  max-width: ${props => props.theme.containerWidth};
+`
 
 const BrandWrapper = styled.div`
   flex: 1;
@@ -18,7 +23,7 @@ const BrandWrapper = styled.div`
   font-size: ${props => props.theme.font.l};
 `;
 
-const NavigationWrapper = styled.div`
+const NavigationItemWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex: 5;
@@ -64,37 +69,44 @@ const NavigationList = styled.ul`
   }
 `;
 
-const navItemBuilder = (link, title) => ({ link, title });
+const n = (link, title) => ({ link, title });
 
 const navItems = [
-  navItemBuilder('#hero', 'Home'),
-  navItemBuilder('#projects', 'Projects'),
-  navItemBuilder('#about', 'About'),
+  n('#hero', 'Home'),
+  n('#projects', 'Projects'),
+  n('#about', 'About'),
 ];
 
-const Header = ({ siteTitle }) => (
-  <HeaderWrapper>
-    <BrandWrapper>
-      <Link to="#">{siteTitle}</Link>
-    </BrandWrapper>
+const Header = ({ siteTitle, background, hero }) => (
+  <HeaderWrapper background={background}>
     <NavigationWrapper>
-      <NavigationList>
-        {navItems.map(({ link, title }, index) => (
-          <li key={index}>
-           <Link to={link}>{title}</Link>
-          </li>
-        ))}
-      </NavigationList>
-    </NavigationWrapper>    
+      <BrandWrapper>
+        <Link to="#">{siteTitle}</Link>
+      </BrandWrapper>
+      <NavigationItemWrapper>
+        <NavigationList>
+          {navItems.map(({ link, title }, index) => (
+            <li key={index}>
+            <Link to={link}>{title}</Link>
+            </li>
+          ))}
+        </NavigationList>
+      </NavigationItemWrapper>
+    </NavigationWrapper>
+    {hero}
   </HeaderWrapper>
 )
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  hero: PropTypes.oneOfType([PropTypes.node, null]),
+  background: PropTypes.string,
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  hero: null,
+  background: null,
 }
 
 export default Header

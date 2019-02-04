@@ -1,19 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { format } from '../util/urlFormat';
 
-const ProjectWrapper = styled.div`
+const gradients = [
+  'linear-gradient(126.41deg, #17EAD9 1.65%, #6078EA 100%)',
+  'linear-gradient(126.9deg, #FCE38A 1.74%, #F38181 98.97%)',
+  'linear-gradient(-135deg, #7117EA 0%, #EA6060 100%)',
+]
+
+const ProjectWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: linear-gradient(126.41deg, #17EAD9 1.65%, #6078EA 100%);
+  background: ${gradients[0]};
 
   &:nth-child(2n) {
-    background: linear-gradient(126.9deg, #FCE38A 1.74%, #F38181 98.97%);
+    background: ${gradients[1]};
   }
 
   &:nth-child(3n) {
-    background: linear-gradient(-135deg, #7117EA 0%, #EA6060 100%);;
+    background: ${gradients[2]};
   }
 
   margin: ${props => props.theme.spacing.s};
@@ -41,9 +49,8 @@ const Tag = styled.div`
   margin-right: ${props => props.theme.spacing.xs}
 `
 
-
-const Project = ({ project }) => (
-  <ProjectWrapper>
+const Project = ({ project, index }) => (
+  <ProjectWrapper to={format(project.title)} state={{ color: gradients[index] }}>
     <h3>{project.title}</h3>
     <Tags>
       {project.tags.map((val, i) => (

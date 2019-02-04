@@ -24,6 +24,7 @@ const NavItem = styled(Link)`
   margin-right: ${props => props.theme.spacing.s};
   margin-left: ${props => props.theme.spacing.s};
   transition: .1s ease;
+  min-width: 110px;
 
   &:hover {
     transform: translateY(-5px);

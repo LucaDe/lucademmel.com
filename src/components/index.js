@@ -4,8 +4,9 @@ export { default as Seo } from './Seo';
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';
 export { default as Container } from './Container';
-
 export { default as Hero } from './Hero';
+
+export { default as IndexHero } from './IndexHero';
 export { default as Projects } from './Projects';
 export { default as About } from './About';
 export { default as Footer } from './Footer';
