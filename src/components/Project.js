@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 
 import { format } from '../util/urlFormat';
 import { media } from '../theme';
@@ -10,6 +10,46 @@ const gradients = [
   'linear-gradient(126.9deg, #FCE38A 1.74%, #F38181 98.97%)',
   'linear-gradient(-135deg, #7117EA 0%, #EA6060 100%)',
 ]
+
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: ${props => props.theme.font.m}
+`
+
+const Tag = styled.div`
+  margin-right: ${props => props.theme.spacing.xs}
+`
+
+const Title = styled.h3`
+  text-align: center;
+`
+
+const Description = styled.p`
+  font-size: ${props => props.theme.font.s}
+`
+
+// Since DOM elements <a> cannot receive activeClassName,
+// destructure the prop here and pass it only to GatsbyLink
+const Link = ({ children, to, activeClassName, ...other }) => {
+  // This example assumes that any internal link (intended for Gatsby)
+  // will start with exactly one slash, and that anything else is external.
+  const internal = /^\/(?!\/)/.test(to)
+
+  // Use Gatsby Link for internal links, and <a> for others
+  if (internal) {
+    return (
+      <GatsbyLink to={to} activeClassName={activeClassName} {...other}>
+        {children}
+      </GatsbyLink>
+    )
+  }
+  return (
+    <a href={to} target="_blank" {...other}>
+      {children}
+    </a>
+  )
+}
 
 const ProjectWrapper = styled(Link)`
   display: flex;
@@ -44,29 +84,27 @@ const ProjectWrapper = styled(Link)`
     transform: translateY(-10px);
   }
 `;
-const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  font-size: ${props => props.theme.font.m}
-`
 
-const Tag = styled.div`
-  margin-right: ${props => props.theme.spacing.xs}
-`
-
-const Title = styled.h3`
-  text-align: center;
-`
-
-const Project = ({ project, index }) => (
-  <ProjectWrapper to={format(project.title)} state={{ color: gradients[index] }}>
-    <Title>{project.title}</Title>
-    <Tags>
-      {project.tags.map((val, i) => (
-          <Tag key={i}>#{val}</Tag>
-      ))}
-    </Tags>
-  </ProjectWrapper>
-)
+const Project = ({ project, index }) => {
+  let target = project.showContent ? format(project.title) : '/#projects';
+  if (project.externalTarget) {
+    target = project.externalTarget
+  }
+  let description = 'More details coming soon.'
+  if (project.description) {
+    description = project.description
+  }
+  return (
+    <ProjectWrapper to={target} state={{ color: gradients[index] }}>
+      <Title>{project.title}</Title>
+      <Tags>
+        {project.tags.map((val, i) => (
+            <Tag key={i}>#{val}</Tag>
+        ))}
+      </Tags>
+      <Description>{description}</Description>
+    </ProjectWrapper>
+  )  
+}
 
 export default Project

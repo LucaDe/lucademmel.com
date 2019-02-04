@@ -31,6 +31,9 @@ export const query = graphql`{
       node {
         id
         title
+        description
+        externalTarget
+        showContent
         content {
           childContentfulRichText {
             html

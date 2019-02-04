@@ -15,6 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 id
                 title
+                showContent
                 content {
                   childContentfulRichText {
                     html
@@ -32,15 +33,17 @@ exports.createPages = ({ graphql, actions }) => {
         // Create pages for each project.
         result.data.allContentfulPosts.edges.forEach(({ node }) => {
           const path = `projects/${node.title.trim().replace(/ /g, '-').toLowerCase()}`
-          createPage({
-            path,
-            component: postTemplate,
-            // In your blog post template's graphql query, you can use path
-            // as a GraphQL variable to query for data from the markdown file.
-            context: {
-              node
-            },
-          })
+          if (node.showContent) {
+            createPage({
+              path,
+              component: postTemplate,
+              // In your blog post template's graphql query, you can use path
+              // as a GraphQL variable to query for data from the markdown file.
+              context: {
+                node
+              },
+            })
+          }
         })
       })
     )

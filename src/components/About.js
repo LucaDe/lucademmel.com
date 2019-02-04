@@ -77,7 +77,7 @@ const About = () => (
             <Wrapper>
               <AboutRow>
                 <ProfileImage fluid={data.fileName.childImageSharp.fluid} />
-                <AboutText>Passionate about realizing <i>value creating</i> digital products and experiences using state of the art technologies 💯</AboutText>
+                <AboutText>Passionate about realizing data and technology driven products and experiences using state of the art technologies 💯</AboutText>
               </AboutRow>
               <Text>
                 While studying business information systems in Cologne and LA I worked in multiple e-commerce companies as a web developer. After finishing my bachelor degree
