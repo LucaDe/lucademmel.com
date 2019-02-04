@@ -1,7 +1,8 @@
 const theme = {
   colors: {
     primary: '#414345',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    blue: '#63A6F5',
   },
   fontFamily: 'Poppins, Arial sans-serif',
   containerWidth: '1400px',

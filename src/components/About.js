@@ -7,7 +7,7 @@ import Heading from './Heading';
 import Container from './Container';
 
 const AboutWrapper = styled.div`
-  background: #63A6F5;
+  background: ${props => props.theme.colors.blue};
   height: 600px;
   width: 100%;
 `
