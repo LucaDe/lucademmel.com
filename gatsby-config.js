@@ -22,13 +22,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Bringing Visions to real life | lucademmel.com`,
+        short_name: ` lucademmel.com`,
         start_url: `/`,
-        background_color: `green`,
-        theme_color: `green`,
+        background_color: `white`,
+        theme_color: `white`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-components`,
