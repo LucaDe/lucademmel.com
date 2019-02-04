@@ -38,7 +38,6 @@ export default class CookieBanner extends Component {
     this.cookies = new Cookies();
 
     if (!this.cookies.get('cookieInfo')) {
-      console.log('Show cookie')
       this.setState({
         showCookie: true
       })
@@ -46,7 +45,6 @@ export default class CookieBanner extends Component {
   }
 
   onSubmit = () => {
-    console.log('On submit')
     this.cookies.set('cookieInfo', '1', { path: '/' });
     this.setState({
       showCookie: false
