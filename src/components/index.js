@@ -6,6 +6,7 @@ export { default as Heading } from './Heading';
 export { default as Container } from './Container';
 export { default as Hero } from './Hero';
 export { default as SocialIcons } from './SocialIcons';
+export { default as CookieBanner } from './CookieBanner';
 
 export { default as IndexHero } from './IndexHero';
 export { default as Projects } from './Projects';

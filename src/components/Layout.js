@@ -8,6 +8,7 @@ import Footer from './Footer'
 import theme from '../theme'
 import '../global.css'
 import Hero from './Hero';
+import { CookieBanner } from '.';
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -37,6 +38,7 @@ const Layout = ({ children, background, title, hero }) => {
               <Header background={background} siteTitle={data.site.siteMetadata.title} hero={heroComponent} />
               {children}
               <Footer />
+              <CookieBanner />
             </PageWrapper>
           </>
         </ThemeProvider>
