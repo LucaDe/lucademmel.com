@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+
 import { format } from '../util/urlFormat';
+import { media } from '../theme';
 
 const gradients = [
   'linear-gradient(126.41deg, #17EAD9 1.65%, #6078EA 100%)',
@@ -28,7 +30,10 @@ const ProjectWrapper = styled(Link)`
   border-radius: ${props => props.theme.borderRadius};
   font-size: ${props => props.theme.font.l};
   padding: 0 ${props => props.theme.spacing.s};
-  width: 375px;
+  width: 28%;
+  ${media.desktop`width: 40%;`}
+  ${media.tablet`width: 60%;`}
+  ${media.phone`width: 100%;`}
   height: 280px;
   color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -49,9 +54,13 @@ const Tag = styled.div`
   margin-right: ${props => props.theme.spacing.xs}
 `
 
+const Title = styled.h3`
+  text-align: center;
+`
+
 const Project = ({ project, index }) => (
   <ProjectWrapper to={format(project.title)} state={{ color: gradients[index] }}>
-    <h3>{project.title}</h3>
+    <Title>{project.title}</Title>
     <Tags>
       {project.tags.map((val, i) => (
           <Tag key={i}>#{val}</Tag>

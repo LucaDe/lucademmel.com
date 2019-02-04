@@ -8,6 +8,7 @@ import Project from './Project'
 const ProjectWrapper = styled.div`
   position: relative;
   background: ${props => props.theme.colors.primary};
+  padding-bottom: ${props => props.theme.spacing.l};
 `;
 
 const ProjectList = styled.div`
@@ -18,7 +19,7 @@ const ProjectList = styled.div`
 
 const Separator = styled.svg`
   position: absolute;
-  ${props => props.bottom ? 'bottom' : 'top' }: -10vw;
+  ${props => props.bottom ? 'bottom' : 'top' }: calc(-10vw + 1px);
   width: 100%;
   height: 10vw;
 

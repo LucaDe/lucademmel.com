@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../theme'
+
 const HeadingWrapper = styled.div`
     display: flex;
     align-items: center;
     padding: ${props => props.theme.spacing.l};
+    ${media.phone`padding: ${props => props.theme.font.xl} 0`}
 `;
 
 const Heading = styled.h2`
@@ -17,18 +20,7 @@ const Heading = styled.h2`
 const Triangle = styled.svg`
   width: 56px;
   height: 54px;
-  animation: rotate 4s linear 3;
   z-index: 1;
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;
 
 export default ({ text }) => (

@@ -15,6 +15,8 @@ const FooterWrapper = styled.footer`
 const NavList = styled.ul`
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   text-align: center;
   margin: 0 0 ${props => props.theme.spacing.s} 0;
   padding: 0;
@@ -23,6 +25,7 @@ const NavList = styled.ul`
 const NavItem = styled(Link)`
   margin-right: ${props => props.theme.spacing.s};
   margin-left: ${props => props.theme.spacing.s};
+  margin-top: ${props => props.theme.spacing.s};
   transition: .1s ease;
   min-width: 110px;
 

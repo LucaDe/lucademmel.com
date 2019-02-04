@@ -1,24 +1,25 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from "styled-components"
+import styled from 'styled-components'
+
+import Container from './Container';
+import { media } from '../theme';
 
 const HeaderWrapper = styled.header`
   padding: ${props => props.theme.spacing.l} 0 0 0;
   background: ${props => props.background ? props.background : props.theme.colors.white};
 `;
 
-const NavigationWrapper = styled.div`
+const NavigationWrapper = styled(Container)`
   display: flex;
-  justify-content: center;
+  ${media.phone`flex-direction: column;`}
+  justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 100%;
-  max-width: ${props => props.theme.containerWidth};
 `
 
 const BrandWrapper = styled.div`
-  flex: 1;
   font-weight: 600;
   font-size: ${props => props.theme.font.l};
 `;
@@ -26,13 +27,14 @@ const BrandWrapper = styled.div`
 const NavigationItemWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  flex: 5;
   font-size: ${props => props.theme.font.s};
 `;
 
 const NavigationList = styled.ul`
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  padding: 0;
 
   li {
     padding: ${props => props.theme.spacing.s};
@@ -99,7 +101,7 @@ const Header = ({ siteTitle, background, hero }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  hero: PropTypes.oneOfType([PropTypes.node, null]),
+  hero: PropTypes.node,
   background: PropTypes.string,
 }
 

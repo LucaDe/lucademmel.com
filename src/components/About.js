@@ -5,10 +5,11 @@ import Img from "gatsby-image"
 
 import Heading from './Heading';
 import Container from './Container';
+import { media } from '../theme';
 
 const AboutWrapper = styled.div`
   background: ${props => props.theme.colors.blue};
-  height: 600px;
+  padding-bottom: 1px;
   width: 100%;
 `
 
@@ -20,6 +21,7 @@ const ProfileImage = styled(Img)`
 
 const Wrapper = styled.div`
   padding: ${props => props.theme.spacing.l};
+  ${media.phone`padding: 0;`}
   color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.font.l};
   font-weight: 500;
@@ -28,10 +30,13 @@ const Wrapper = styled.div`
 const AboutRow = styled.div`
   display: flex;
   align-items: center;
+
+  ${media.tablet`flex-direction: column;`}
 `
 
 const AboutText = styled.p`
-  padding-left: ${props => props.theme.spacing.m}
+  padding-left: ${props => props.theme.spacing.m};
+  ${media.phone`padding: 0;`}
 `
 
 const Text = styled.p`

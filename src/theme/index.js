@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 const theme = {
   colors: {
     primary: '#414345',
@@ -22,9 +24,26 @@ const theme = {
     xxl: '72px',
   },
   borderRadius: '8px',
+  breakpoints: {
+    desktop: 992,
+    tablet: 768,
+    phone: 576,
+  }
 }
 
 export default theme
+
+// Iterate through the sizes and create a media template
+export const media = Object.keys(theme.breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${theme.breakpoints[label] / 16}em) {
+      ${css(...args)}
+    }
+  `
+
+  return acc
+}, {})
+
 
 export const particleConfig =  {
   particles: {
