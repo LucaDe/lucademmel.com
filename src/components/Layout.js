@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'intersection-observer'
+
 import styled, { ThemeProvider } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -10,6 +10,7 @@ import theme from '../theme'
 import '../global.css'
 import Hero from './Hero';
 import { CookieBanner } from '.';
+
 
 const PageWrapper = styled.div`
   margin: 0 auto;
