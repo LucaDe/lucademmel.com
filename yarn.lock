@@ -8246,6 +8246,13 @@ react-hot-loader@^4.6.2:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
+react-intersection-observer@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-7.0.0.tgz#7f6e1fbbc978b84020844cfeb821f53633d3308d"
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    invariant "^2.2.4"
+
 react-is@^16.6.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
@@ -8264,6 +8271,12 @@ react-side-effect@^1.1.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-spring@^7.2.10:
+  version "7.2.10"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.10.tgz#eacbf429327bea058677c3a01af87b9c387f4aa6"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 react@^16.6.3:
   version "16.7.0"

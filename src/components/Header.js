@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Spring, animated } from 'react-spring'
 
 import Container from './Container';
 import { media } from '../theme';
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled(animated.header)`
   padding: ${props => props.theme.spacing.l} 0 0 0;
   background: ${props => props.background ? props.background : props.theme.colors.white};
 `;
@@ -80,23 +81,27 @@ const navItems = [
 ];
 
 const Header = ({ siteTitle, background, hero }) => (
-  <HeaderWrapper background={background}>
-    <NavigationWrapper>
-      <BrandWrapper>
-        <Link to="#">{siteTitle}</Link>
-      </BrandWrapper>
-      <NavigationItemWrapper>
-        <NavigationList>
-          {navItems.map(({ link, title }, index) => (
-            <li key={index}>
-            <Link to={link}>{title}</Link>
-            </li>
-          ))}
-        </NavigationList>
-      </NavigationItemWrapper>
-    </NavigationWrapper>
-    {hero}
-  </HeaderWrapper>
+  <Spring from={{ opacity: 0 }} to={{ opacity: 1}}>
+    {props => (
+      <HeaderWrapper style={props} background={background}>
+        <NavigationWrapper>
+          <BrandWrapper>
+            <Link to="#">{siteTitle}</Link>
+          </BrandWrapper>
+          <NavigationItemWrapper>
+            <NavigationList>
+              {navItems.map(({ link, title }, index) => (
+                <li key={index}>
+                <Link to={link}>{title}</Link>
+                </li>
+              ))}
+            </NavigationList>
+          </NavigationItemWrapper>
+        </NavigationWrapper>
+        {hero}
+      </HeaderWrapper>
+    )}
+  </Spring>
 )
 
 Header.propTypes = {

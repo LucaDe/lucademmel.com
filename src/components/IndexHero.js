@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import Particles from 'react-particles-js';
+import React from 'react'
+import styled from 'styled-components'
+import Particles from 'react-particles-js'
+import { Spring, animated } from 'react-spring'
 
-import { particleConfig, media } from '../theme';
-import Button from './Button';
-import Container from './Container';
+import { particleConfig, media } from '../theme'
+import Button from './Button'
+import Container from './Container'
 
 const HeroWrapper = styled(Container)`
   display: flex;
@@ -14,7 +15,7 @@ const HeroWrapper = styled(Container)`
   position: relative;
 `;
 
-const Left = styled.div`
+const Left = styled(animated.div)`
   flex: 1;
   padding-top: ${props => props.theme.spacing.xxl};
   color: ${props => props.theme.colors.primary};
@@ -22,7 +23,7 @@ const Left = styled.div`
   min-width: 280px;
 `;
 
-const Caption = styled.h1`
+const Caption = styled(animated.h1)`
   font-size: ${props => props.theme.font.xxl};
   ${media.desktop`font-size: ${props => props.theme.font.xl}`}
   font-weight: bold;
@@ -37,14 +38,21 @@ const Right = styled.div`
 
 const IndexHero = ({ slogan }) => (
   <HeroWrapper id="hero">
-    <Left>
-      <Caption>{slogan}</Caption>
-      <p>
-        Ideas are everywhere. I focus on transforming them to digital products and bringing them to real life using state of the art technologies.
-      </p>
-      <Button href="#projects">Projects</Button>
-      <Button inline href="#about">More about me</Button>
-    </Left>
+    <Spring
+      from={{ opacity: 0 }}
+      to={{ opacity: 1 }}
+    >
+      {props =>  
+        <Left style={props}>
+          <Caption>{slogan}</Caption>
+          <p>
+            Ideas are everywhere. I focus on transforming them to digital products and bringing them to real life using state of the art technologies.
+          </p>
+          <Button href="#projects">Projects</Button>
+          <Button inline href="#about">More about me</Button>
+        </Left>
+      }
+    </Spring>
     <Right>
       <Particles height={500} params={particleConfig} />
     </Right>
