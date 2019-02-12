@@ -26,7 +26,7 @@ export const query = graphql`{
     slogan
   }
 
-  allContentfulPosts {
+  allContentfulPosts(sort: { fields: [ sortOrder, createdAt ], order: DESC}) {
     edges {
       node {
         id
