@@ -1,4 +1,4 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env`,
 })
 
@@ -55,8 +55,8 @@ module.exports = {
         // Setting this parameter is also optional
         respectDNT: true,
         // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**"],
-        cookieDomain: "www.lucademmel.com",
+        exclude: ['/preview/**'],
+        cookieDomain: 'www.lucademmel.com',
       },
     },
   ],

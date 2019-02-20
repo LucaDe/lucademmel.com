@@ -11,7 +11,7 @@ import { Seo, Layout, IndexHero, Projects, About } from '../components'
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Home" keywords={[`tech`, `entrepreneurship`, `business`, `development`, `startups`]} />
+      <Seo title="Bringing visions to real life" keywords={[`tech`, `entrepreneurship`, `business`, `development`, `startups`]} />
       <IndexHero slogan={data.contentfulPageInformation.slogan} />
       <Projects projects={data.allContentfulPosts.edges} />
       <About />
